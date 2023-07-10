@@ -1,6 +1,7 @@
 /*
 Implemente la clase Persona. Una persona tiene un nombre y una fecha de nacimiento (Tipo Date), constructor vacío, constructor parametrizado, get y set.
 Y los siguientes métodos:
+
  Agregar un método de creación del objeto que respete la siguiente firma: crearPersona().
 Este método rellena el objeto mediante un Scanner y le pregunta al usuario el nombre y la fecha de nacimiento de la persona a crear,
 recordemos que la fecha de nacimiento debe guardarse en un Date y los guarda en el objeto.
@@ -16,8 +17,10 @@ tenga menor edad que la persona que se recibe como parámetro, o false en caso c
  */
 package guiapoo.ej12;
 
+import Entity.Persona;
+import Service.PersonaService;
+
 /**
- *
  * @author mfoso
  */
 public class GuiaPOOEj12 {
@@ -26,7 +29,14 @@ public class GuiaPOOEj12 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+       PersonaService ps = new PersonaService();
+       Persona per1 =ps.crearPersona();
+       
+        ps.calculaEdad(per1);
+        System.out.println(ps.menorQue(per1));
+        ps.mostrarPersona(per1);
+       
     }
     
 }
